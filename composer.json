@@ -1,0 +1,17 @@
+{
+    "name": "techlup/flutterwave",
+    "description": "php checkout library",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Techlup\\PhpCheckout\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "denisdevke",
+            "email": "deniskem.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
