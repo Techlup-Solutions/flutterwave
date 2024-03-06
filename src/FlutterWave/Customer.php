@@ -9,17 +9,17 @@ namespace Techlup\FlutterWave;
 
 class Customer{
     /**
-     * @var String The customer email
+     * @var string The customer email
      */
-    public String $email;
+    public string $email;
     /**
-     * @var String The customer first name
+     * @var string The customer first name
      */
-    public String $first_name;
+    public string $first_name;
     /**
-     * @var String The customer last name
+     * @var string The customer last name
      */
-    public String $last_name;
+    public string $last_name;
 
     /**
      * Converts the Customer object to an associative array.

@@ -6,19 +6,19 @@
 
 namespace Techlup\FlutterWave; 
 
-final class App{
+class App{
 
     /**
-     * @var String the secret key used to authenticate flutter-wave API
+     * @var string the secret key used to authenticate flutter-wave API
      */
-    protected String $secret_key;
+    protected string $secret_key;
 
     /**
      * Constructs a new App class
      * 
-     * @param  String $secret_key the secret key used to authenticate flutter-wave API
+     * @param  string $secret_key the secret key used to authenticate flutter-wave API
      */
-    public function __construct(String $secret_key) {
+    public function __construct(string $secret_key) {
         $this->secret_key = $secret_key;
     }
     

@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Techlup\\PhpCheckout\\' => array($baseDir . '/src'),
+    'Techlup\\FlutterWave\\' => array($baseDir . '/src/FlutterWave'),
 );

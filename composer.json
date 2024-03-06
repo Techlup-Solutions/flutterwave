@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Techlup\\PhpCheckout\\": "src/"
+            "Techlup\\FlutterWave\\": "src\\FlutterWave\\"
         }
     },
     "authors": [

@@ -9,14 +9,14 @@ class ComposerStaticInit4c7d3d94682a41b72971a79e3a827061
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Techlup\\PhpCheckout\\' => 20,
+            'Techlup\\FlutterWave\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Techlup\\PhpCheckout\\' => 
+        'Techlup\\FlutterWave\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/src/FlutterWave',
         ),
     );
 
