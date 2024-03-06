@@ -16,7 +16,7 @@ final class App{
     /**
      * Constructs a new App class
      * 
-     * @var String $secret_key the secret key used to authenticate flutter-wave API
+     * @param  String $secret_key the secret key used to authenticate flutter-wave API
      */
     public function __construct(String $secret_key) {
         $this->secret_key = $secret_key;
