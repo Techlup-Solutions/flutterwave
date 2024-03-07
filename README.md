@@ -1,4 +1,4 @@
-# FlutterWave Integration Documentation (Test Code)
+# FlutterWave Integration Documentation
 
 This PHP script provides a demonstration of integrating with the FlutterWave API for handling subscription, deactivating subscriptions, and payments. Please note that this code is intended for testing purposes only and should be appropriately modified and secured before use in a production environment.
 
@@ -15,6 +15,30 @@ This PHP script provides a demonstration of integrating with the FlutterWave API
 
 ## Functions
 
+### Create a Customer
+
+- Description: Creates a new customer in the FlutterWave system.
+- Parameters:
+    - `$email`: Email address of the customer.
+    - `$firstName`: First name of the customer.
+    - `$lastName`: Last name of the customer.
+- Returns: JSON response containing the details of the created customer.
+
+#### Sample Code
+
+```php
+// Define customer details
+$email = 'user@example.com';
+$firstName = 'John';
+$lastName = 'Doe';
+
+// Create a new customer
+$customer = new \Techlup\FlutterWave\Customer();
+$customer->email = $email;
+$customer->first_name = $firstName;
+$customer->last_name= $lastName;
+```
+
 ### Subscribe A User
 
 - Description: Initiates a subscription checkout process for a customer.
@@ -25,7 +49,7 @@ This PHP script provides a demonstration of integrating with the FlutterWave API
 
 ```php
 $subscription = new \Techlup\FlutterWave\Subscription($secrete_key);
-$response = $subscription->setRedirectUrl('https://enuts3p0yle3.x.pipedream.net/')
+$response = $subscription->setRedirectUrl($redirect_url)
     ->setCustomer($customer)
     ->setPlanId('117407')
     ->setRef('test')
@@ -65,7 +89,7 @@ $response = $payment->setAmount(10)
     ->setRef('test')
     ->setCurrency('KES')
     ->setOptions('card')
-    ->setRedirectUrl('https://enuts3p0yle3.x.pipedream.net/')
+    ->setRedirectUrl($redirect_url)
     ->setCustomer($customer)
     ->checkout();
 
