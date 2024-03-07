@@ -6,7 +6,7 @@
 
 namespace Techlup\FlutterWave;
 
-class Payment extends App
+class Subscription extends App
 {
     /**
      * @var string the reference id.
@@ -24,14 +24,9 @@ class Payment extends App
     private string $currency = 'KES';
 
     /**
-     * @var string the payment options.
+     * @var string the plan id
      */
-    private string $options = 'card';
-
-    /**
-     * @var string the redirect
-     */
-    private string $redirect_url;
+    private string $plan_id;
 
     /**
      * @var Customer the customer
@@ -39,24 +34,28 @@ class Payment extends App
     private Customer $customer;
 
     /**
+     * @var string the redirect
+     */
+    private string $redirect_url;
+
+    /**
      * @var string the title
      */
-    private string $title = 'Checkout';
+    private string $title = 'Subscribe';
 
     /**
      * @var string the description
      */
     private string $description = '';
 
-
     /**
-     * Constructs a new Payment class
+     * Constructs a new Subscription class
      *
      * @param string $secret_key the secret key used to authenticate flutter-wave API
      */
     public function __construct(string $secret_key)
     {
-        //initialize the parent
+        # initialize the parent
         parent::__construct($secret_key);
     }
 
@@ -64,9 +63,9 @@ class Payment extends App
      * Sets the reference
      *
      * @param string $ref the transaction reference to be used later on redirect.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setRef(string $ref): Payment
+    public function setRef(string $ref): Subscription
     {
         $this->ref = $ref;
         return $this;
@@ -76,9 +75,9 @@ class Payment extends App
      * Sets the amount
      *
      * @param float $amount the amount the customer is required to pay.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setAmount(float $amount): Payment
+    public function setAmount(float $amount): Subscription
     {
         $this->amount = $amount;
         return $this;
@@ -88,35 +87,23 @@ class Payment extends App
      * Sets the currency
      *
      * @param string $currency the currency paid. Default: 'KES'.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setCurrency(string $currency): Payment
+    public function setCurrency(string $currency): Subscription
     {
         $this->currency = $currency;
         return $this;
     }
 
     /**
-     * Sets the payment options
+     * Sets the plan id
      *
-     * @param string $options the payment options. Default: 'card'.
-     * @returns Payment the updated instance of the Payment class.
+     * @param string $plan_id the flutter-wave plan id.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setOptions(string $options): Payment
+    public function setPlanId(string $plan_id): Subscription
     {
-        $this->options = $options;
-        return $this;
-    }
-
-    /**
-     * Sets the redirect URL
-     *
-     * @param string $redirect_url the redirect URL.
-     * @returns Payment the updated instance of the Payment class.
-     */
-    public function setRedirectUrl(string $redirect_url): Payment
-    {
-        $this->redirect_url = $redirect_url;
+        $this->plan_id = $plan_id;
         return $this;
     }
 
@@ -124,11 +111,23 @@ class Payment extends App
      * Sets the customer
      *
      * @param Customer $customer the customer.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setCustomer(Customer $customer): Payment
+    public function setCustomer(Customer $customer): Subscription
     {
         $this->customer = $customer;
+        return $this;
+    }
+
+    /**
+     * Sets the redirect URL
+     *
+     * @param string $redirect_url the redirect URL.
+     * @returns Subscription the updated instance of the Subscription class.
+     */
+    public function setRedirectUrl(string $redirect_url): Subscription
+    {
+        $this->redirect_url = $redirect_url;
         return $this;
     }
 
@@ -136,9 +135,9 @@ class Payment extends App
      * Sets the description
      *
      * @param string $description the description.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setDescription(string $description): Payment
+    public function setDescription(string $description): Subscription
     {
         $this->description = $description;
         return $this;
@@ -148,9 +147,9 @@ class Payment extends App
      * Sets the title
      *
      * @param string $title the title shown on flutter-wave checkout page. Default: 'Checkout'.
-     * @returns Payment the updated instance of the Payment class.
+     * @returns Subscription the updated instance of the Subscription class.
      */
-    public function setTitle(string $title): Payment
+    public function setTitle(string $title): Subscription
     {
         $this->title = $title;
         return $this;
@@ -166,11 +165,11 @@ class Payment extends App
         # Define the payload
         $request = [
             'tx_ref' => $this->ref,
-            'amount' => $this->amount,
-            'currency' => $this->currency,
-            'payment_options' => $this->options,
             'redirect_url' => $this->redirect_url,
             'customer' => $this->customer->toArray(),
+            'payment_plan' => $this->plan_id,
+            'amount'=> $this->amount,
+            'currency'=> $this->currency,
             'meta' => [
                 'price' => $this->amount
             ],
