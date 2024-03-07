@@ -8,6 +8,8 @@ This PHP script provides a demonstration of integrating with the FlutterWave API
 2. Navigate to the directory containing the cloned repository.
 3. Run `composer install` to install the required dependencies.
 
+or install using composer `composer require techlup/flutterwave`
+
 ## Configuration
 
 - Ensure you have a FlutterWave account and obtain the required API keys.
