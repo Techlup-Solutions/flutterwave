@@ -7,5 +7,6 @@
 namespace Techlup\FlutterWave;
 
 final class Constants{
-    const PAYMENTS_ENDPOINT = 'https://api.flutterwave.com/v3/payments';
+    const PAYMENTS_ENDPOINT = 'https://api.flutterwave.com/v3/payments/';
+    const SUBSCRIPTIONS_ENDPOINT = 'https://api.flutterwave.com/v3/subscriptions/';
 }

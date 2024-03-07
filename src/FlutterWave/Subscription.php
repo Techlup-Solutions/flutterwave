@@ -204,4 +204,64 @@ class Subscription extends App
         return json_decode($response);
     }
 
+    /**
+     * Deactivates a subscription
+     *@param string $subscription_id the subscription id in flutter wave.
+     * @returns stdClass the response from flutter-wave API.
+     */
+    public function deactivate(string $subscription_id): \stdClass{
+
+        # Call flutter-wave endpoint
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => Constants::SUBSCRIPTIONS_ENDPOINT . $subscription_id.'/cancel',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer '. $this->secret_key,
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+        # End endpoint call
+
+        return json_decode($response);
+    }
+
+    /**
+     * Activates a subscription
+     *@param string $subscription_id the subscription id in flutter wave.
+     * @returns stdClass the response from flutter-wave API.
+     */
+    public function activate(string $subscription_id): \stdClass{
+
+        # Call flutter-wave endpoint
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => Constants::SUBSCRIPTIONS_ENDPOINT . $subscription_id.'/activate',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer '. $this->secret_key,
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+        # End endpoint call
+
+        return json_decode($response);
+    }
+
 }
