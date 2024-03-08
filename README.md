@@ -1,6 +1,6 @@
 # FlutterWave Integration Documentation
 
-This PHP script provides a demonstration of integrating with the FlutterWave API for handling subscription, deactivating subscriptions, and payments. Please note that this code is intended for testing purposes only and should be appropriately modified and secured before use in a production environment.
+This PHP script provides a demonstration of integrating with the FlutterWave API for handling subscription, deactivating subscriptions, and payments.
 
 ## Installation
 
