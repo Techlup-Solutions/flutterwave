@@ -2,6 +2,12 @@
 
 This PHP script provides a demonstration of integrating with the FlutterWave API for handling subscription, deactivating subscriptions, and payments.
 
+## Support This Project
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=N9NJKXB445ZZ6">
+  <img src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" alt="Donate with PayPal" width="200px"/>
+</a>
+
 ## Installation
 
 1. Clone this repository to your local machine.
